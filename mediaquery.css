@@ -1,7 +1,227 @@
 
 
 
+/* Media query for screens 728px and wider */
+@media (min-width: 728px) {
 
+    /*================ABOUT/MISSION============*/
+
+    #amw {
+        margin-top: -150px;
+        position: absolute;
+    }
+    
+
+    .amw2 {
+        background-color: var(--lightgold-color);
+        margin-right: 50px;
+        margin-left: 50px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+
+
+     /*---------------EVENTS COVERED---------*/
+
+     #trusted {
+        margin-top: 700px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+
+    .trust-img {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        gap: 30px;
+        margin-top: 40px;
+        
+    }
+
+    .trusted1 p {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+
+    
+
+
+    .mother-trust {
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-bottom: 40px;
+    }
+
+
+     /*---------------GALLERY--------------*/
+
+
+     .mother-photo {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    #photo {
+        margin-top: 70px;
+        overflow: hidden;
+        margin-bottom: 80px;
+    }
+
+    .photo2 img {
+        width: 50%;
+    }
+
+
+    .photo-text {
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+        text-align: left;
+        padding-left: 65px;
+        padding-right: 65px;
+        margin-top: 80px;
+        
+    }
+
+    .photo-text h2 {
+        width: 100%;
+    }
+
+    .photo-text p {
+        margin-top: 0px;
+    }
+
+
+
+
+    /* ======STYLE FOR SERVICES RENDERED======= */
+    
+
+    .svc1 {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        text-align: left;
+        margin-top: 80px;
+        
+    }
+
+    .svc0 {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .svc2 {
+        width: 100%;
+    }
+
+
+    .sc {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+
+    /*--------------------Experience----------------*/
+
+
+  #satis {
+    background-image: url(image/16.jpg);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    overflow: hidden;
+    height: 80vh;
+    background-color: #080808c5;
+    background-blend-mode: overlay;
+    opacity: 1;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.expt {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 40px;
+}
+
+
+.c-client {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    
+
+}
+
+
+.expt h1 {
+    font-family: var(--font-2);
+    color: var(--white-color);
+    font-size: 2.5em;
+    font-weight: 500;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+/*--------------------------------------tESTIMONIAL----------------------*/
+
+.testii {
+    padding-left: 50px;
+ }
+
+
+ .testimonial-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* margin-right: 10px; */
+    /* gap: 20px; */
+    width: 100%;
+
+    
+}
+
+ .box {
+    min-width: 50%; /* Two testimonials side by side */
+    position: relative;
+    
+    
+    
+}
+
+.testii h1 {
+    font-size: 2.5em;
+    padding-right: 30%;
+}
+
+
+      
+
+
+
+}
 
 
 
@@ -66,7 +286,7 @@
     /*================ABOUT/MISSION============*/
 
     #amw {
-        margin-top: -50px;
+        margin-top: -150px;
         position: absolute;
     }
     
@@ -83,7 +303,196 @@
         flex-direction: row;
         gap: 80px;
     }
+
+
+
+
+    /*---------------EVENTS COVERED---------*/
+
+    #trusted {
+        margin-top: 300px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+
+    .trust-img {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        gap: 30px;
+        margin-top: 40px;
+        
+    }
+
+    .trusted1 p {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+
+    
+
+
+    .mother-trust {
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-bottom: 40px;
+    }
       
+
+
+    /* ======STYLE FOR SERVICES RENDERED======= */
+    
+
+    .svc1 {
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+        text-align: left;
+        padding-left: 65px;
+        padding-right: 65px;
+        margin-top: 80px;
+        
+    }
+
+    .svc2 {
+        width: 100%;
+    }
+
+    .sc {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+
+
+
+
+    /*---------------GALLERY--------------*/
+
+
+    .mother-photo {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+
+    .photo2 img {
+        width: 20%;
+    }
+
+
+    .photo-text {
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+        text-align: left;
+        padding-left: 65px;
+        padding-right: 65px;
+        margin-top: 80px;
+        
+    }
+
+    .photo-text h2 {
+        width: 100%;
+    }
+
+    .photo-text p {
+        margin-top: 0px;
+    }
+
+
+    
+    /*--------------------EXPERIENCE----------------*/
+
+
+    #satis {
+        background-image: url(image/16.jpg);
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        overflow: hidden;
+        height: 90vh;
+        background-color: #080808c5;
+        background-blend-mode: overlay;
+        opacity: 1;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+
+    .expt {
+        padding-left: 70px;
+        padding-right: 20%;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 40px;
+    }
+
+
+    .c-client {
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+        
+
+    }
+
+
+    .expt h1 {
+        font-family: var(--font-2);
+        color: var(--white-color);
+        font-size: 2.5em;
+        font-weight: 500;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+
+
+    /*-------------------TESTIMONIAL-------------------*/
+
+
+    .testii {
+        padding-left: 70px;
+    }
+
+    .testii h1 {
+        font-size: 2.5em;
+        padding-right: 70%;
+    }
+
+
+    .testimonial-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        /* margin-right: 10px; */
+        /* gap: 20px; */
+        width: 100%;
+
+        
+    }
+
+
+    .box {
+        min-width: 50%; /* Two testimonials side by side */
+        position: relative;
+        
+        
+        
+    }
+
 
 
 

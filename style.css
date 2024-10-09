@@ -9,6 +9,12 @@
 @font-face {
     font-family: 'custom';
     src: url(font/Dantina.ttf) format('truetype');
+
+}
+
+@font-face {
+    font-family: 'custom2';
+    src: url(font/Huntgraphy.otf) format('opentype');
 }
 
 
@@ -41,7 +47,7 @@
     --white-color: white;
     --fade-out:rgb(85, 85, 85);
     --dark-main-color:#160e0d;
-    --font-1:"FontAwesome", serif;
+    --font-1:"Cormorant", serif;
     --font-2: "Poppins", sans-serif;
     --font-3: "Josefin Sans", sans-serif;
     
@@ -348,4 +354,454 @@ header {
     flex-direction: column;
     gap: 20px;
 }
+
+
+
+/*---------------EVENTS COVERED---------*/
+
+
+#trusted {
+    margin-top: 1000px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.trusted1 h2 {
+    margin-bottom: 30px;
+    color: var(--gold-color);
+
+}
+
+.mother-trust {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 40px;
+}
+
+.trust-img {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    
+}
+
+.trusted1 p {
+    line-height: 1.5em;
+}
+
+.trust-img img {
+    width: 120px;
+    height: auto;
+}
+
+
+/*==================OUR SERVICES=============*/
+
+.background-section {
+    position: relative;
+    height: auto; /* Adjust height as needed */
+    background-image: url(image/8.jpg); /* Set your background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.719); /* Adjust the opacity and color here */
+    z-index: 1; /* Ensure it sits between the background and content */
+}
+
+.svc0 {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+    color: var(--dark-main-color); /* Style the content */
+    padding: 20px;
+    text-align: center;
+}
+
+.svc1 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.svc2 h5 {
+    font-family: var(--font-1);
+    color: var(--purple);
+    margin-bottom: 15px;
+    font-weight: 500;
+    
+}
+
+.svc2 h2 {
+    font-weight: bold;
+    font-size: 1.9em;
+    font-family: var(--font-1);
+    color: var(--purplecolor);
+
+}
+
+.svc2 span {
+    font-family: custom2, cursive;
+    position: relative;
+    /* bottom: 25px; */
+    color: var(--gold-color);
+    font-size: 1.9em;
+    font-weight: 400;
+}
+
+.svc1 p {
+    line-height: 30px;
+    margin-bottom: 40px;
+    color: var(--dark-main-color);
+    font-family: var(--font-2);
+}
+
+.sc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.sc2 {
+    background-color: white;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.sc2 h2 {
+    margin-bottom: 20px;
+    color: var(--purple);
+}
+
+.sc2 p {
+    color: var(--dark-main-color);
+    line-height: 1.5em;
+}
+
+
+.sc2 button {
+    border: none;
+    background-color: var(--gold-color);
+    padding: 15px 30px;
+    color: var(--white-color);
+    font-size: 1em;
+}
+
+
+
+
+
+.ruler {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 1px;
+    background-color: var(--dark-main-color);
+}
+
+
+/*=================PHOTO GALLERY=============*/
+
+
+
+#photo {
+    margin-top: 80px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.mother-photo {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.photo-text {
+    margin-bottom: 30px;
+}
+
+.photo-text p {
+    line-height: 1.2em;
+    margin-top: 20px;
+}
+
+.photo2 {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory; /* Enables snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+    gap: 10px; /* Space between images */
+}
+
+.photo2 img {
+    width: 80%;
+}
+
+.arrow {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.arrow-container {
+    border: 1px solid var(--dark-main-color);
+    border-radius: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 50px;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+
+.photo2::-webkit-scrollbar {
+    display: none; 
+}
+
+.arrow-button {
+    border-top: 1px solid var(--gold-color);
+    border-bottom: 1px solid var(--gold-color);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.arrow-button a {
+    text-decoration: none;
+    color: inherit;
+    font-style: italic;
+}
+
+.arrow-button:hover {
+    background-color: var(--gold-color);
+    color: var(--white-color);
+}
+
+
+/*------------------EXPERIENCE-----------*/
+
+
+  #satis {
+    background-image: url(image/16.jpg);
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #080808bd;
+    background-blend-mode: overlay;
+    opacity: 1;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.expt {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+}
+
+.expt h6 {
+    color: var(--gold-color);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.expt h1 {
+    font-family: var(--font-2);
+    color: var(--white-color);
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.expt span {
+    color: var(--gold-color);
+    font-family: var(--font-2);
+    text-decoration: underline;
+}
+
+
+.client-content h3 {
+    margin-bottom: 10px;
+    color: var(--white-color);
+    font-size: 4em;
+    font-weight: 400;
+    font-family: var(--font-3);
+}
+
+.client-content p {
+    color: var(--white-color);
+    margin-bottom: 20px;
+    font-family: var(--font-2);
+}
+
+.c-client {
+    margin-top: 40px;
+}
+
+
+/*------------------------TESTY------------------*/
+
+/* Testimonial section styling */
+#testy {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.testii {
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testii h6 {
+    color: var(--gold-color);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.testii h1 {
+    font-family: var(--font-1);
+    color: var(--dark-main-color);
+    font-size: 2em;
+}
+
+.testimonial-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.testimonial-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    flex-wrap: nowrap; /* Ensure no wrapping occurs */
+    width: 100%;
+}
+
+.box {
+    min-width: 100%;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.box h4 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: var(--gold-color);
+}
+
+.box p {
+    line-height: 25px;
+}
+
+
+/*---------------PROJECTS------------*/
+
+#project {
+    background-color: var(--lightgold-color);
+    margin-top: 90px;
+    overflow: hidden;
+}
+
+.project-body {
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.project-title {
+    margin-bottom: 40px;
+}
+
+.project-title h4 {
+    margin-bottom: 20px;
+}
+
+.project-title h2 {
+    color: var(--gold-color);
+    font-size: 2em;
+}
+
+.pp-text {
+    margin-bottom: 40px;
+}
+
+.pp-text h2 {
+    font-family: var(--font-2);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.pp-text p {
+    font-family: var(--font-2);
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.project-picture a {
+    text-decoration: none;
+    color: inherit;
+    font-family: var(--font-2);
+    border-bottom: 1px solid var(--dark-main-color);
+}
+
+.pp-img img {
+    width: 100%;
+}
+
+.p-mother {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
   

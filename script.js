@@ -103,4 +103,159 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+////CONTROL FOR CHANGING IMAGE LEFT AND RIGHT
+
+const photoContainer = document.querySelector('.photo2');
+const rightArrow = document.getElementById('right-arrow');
+const leftArrow = document.getElementById('left-arrow');
+
+const imageWidth = photoContainer.querySelector('img').clientWidth + 10;
+
+rightArrow.addEventListener('click', () => {
+    photoContainer.scrollBy({
+        left: imageWidth,
+        behavior: 'smooth'
+    });
+});
+
+leftArrow.addEventListener('click', () => {
+    photoContainer.scrollBy({
+        left: -imageWidth,
+        behavior: 'smooth'
+    });
+});
   
+
+/////////EXPERIENCE
+
+document.addEventListener('DOMContentLoaded', function() {
+    const clientCount = document.getElementById('client-count');
+    const satisfactionCount = document.getElementById('satisfaction-count');
+    const satisfy = document.getElementById('satisfaction-coun');
+    const clientTarget = 12;
+    const satisfactionTarget = 420;
+    const satisfyTarget = 100;
+    let hasAnimated = false;
+
+    function animateCount(element, target, suffix = '') {
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 60);
+
+        function updateCount() {
+            count += increment;
+            if (count > target) count = target;
+            element.textContent = Math.floor(count) + suffix;
+            if (count < target) {
+                requestAnimationFrame(updateCount);
+            }
+        }
+
+        requestAnimationFrame(updateCount);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                animateCount(clientCount, clientTarget, '+');
+                animateCount(satisfactionCount, satisfactionTarget, '+');
+                animateCount(satisfy, satisfyTarget, '%');
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when at least 10% of the section is in view
+    });
+
+    observer.observe(document.getElementById('satis'));
+});
+
+
+
+// JAVASCRIPT FOR TESTIMONIAL
+
+const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+let testimonials = document.querySelectorAll('.box');
+let index = 0;
+let totalTestimonials = testimonials.length;
+
+function getBoxWidth() {
+    return window.innerWidth >= 1024 ? 50 : 100;
+}
+
+// Clone the first two testimonials and append them to the end for screens 728px and above
+if (window.innerWidth >= 728) {
+    testimonialWrapper.appendChild(testimonials[0].cloneNode(true));
+    testimonialWrapper.appendChild(testimonials[1].cloneNode(true));
+    // Re-query the testimonials to include the newly added clones
+    testimonials = document.querySelectorAll('.box');
+    totalTestimonials = testimonials.length;
+}
+
+// Clone the first two testimonials and append them to the end again for screens 1024px and above
+if (window.innerWidth >= 1024) {
+    testimonialWrapper.appendChild(testimonials[0].cloneNode(true));
+    testimonialWrapper.appendChild(testimonials[1].cloneNode(true));
+    // Re-query the testimonials to include the newly added clones
+    testimonials = document.querySelectorAll('.box');
+    totalTestimonials = testimonials.length;
+}
+
+function showTestimonial(index) {
+    testimonialWrapper.style.transition = 'transform 0.5s ease-in-out';
+    testimonialWrapper.style.transform = `translateX(-${index * getBoxWidth()}%)`;
+}
+
+function nextTestimonial() {
+    index++;
+    showTestimonial(index);
+
+    // Instantly reset to the first testimonial without visible transition
+    if (index === totalTestimonials) {
+        setTimeout(() => {
+            testimonialWrapper.style.transition = 'none';
+            testimonialWrapper.style.transform = `translateX(0)`;
+            index = 0;
+        }, 500); // 500ms matches the transition duration
+    }
+}
+
+// Auto-slide functionality
+let autoSlide = setInterval(nextTestimonial, 5000);
+
+// Swipe functionality
+let startX = 0;
+testimonialWrapper.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+
+testimonialWrapper.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX > endX + 50) {
+        clearInterval(autoSlide);
+        nextTestimonial();
+        autoSlide = setInterval(nextTestimonial, 5000);
+    }
+    if (startX < endX - 50) {
+        clearInterval(autoSlide);
+        prevTestimonial();
+        autoSlide = setInterval(nextTestimonial, 5000);
+    }
+});
+
+function prevTestimonial() {
+    if (index === 0) {
+        testimonialWrapper.style.transition = 'none';
+        index = totalTestimonials - 1;
+        testimonialWrapper.style.transform = `translateX(-${index * getBoxWidth()}%)`;
+        setTimeout(() => {
+            index--;
+            testimonialWrapper.style.transition = 'transform 0.5s ease-in-out';
+            showTestimonial(index);
+        }, 0);
+    } else {
+        index--;
+        showTestimonial(index);
+    }
+}
