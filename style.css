@@ -27,7 +27,10 @@
 } */
 
 
-
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
 *{
     margin: 0;
@@ -749,6 +752,7 @@ header {
     background-color: var(--lightgold-color);
     margin-top: 90px;
     overflow: hidden;
+    margin-bottom: 100px;
 }
 
 .project-body {
@@ -803,5 +807,226 @@ header {
     flex-direction: column;
     gap: 20px;
 }
+
+
+/*-------------------------Footer--------------------*/
+
+
+
+#footer {
+    background-color: var(--dark-main-color);
+    color: var(--white-color);
+}
+
+.fut-m {
+    padding-top: 90px;
+    padding-bottom: 90px;
+
+}
+
+.fut {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.fut h4 {
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+
+.fut p {
+    margin-bottom: 20px;
+    font-family: var(--font-2);
+    font-weight: 300;
+    line-height: 2em;
+}
+
+.fut2 ul {
+    margin-bottom: 30px;
+    position: relative;
+    
+}
+
+.fut2 li {
+    
+    margin-bottom: 20px;
+    list-style: none;
+    
+}
+
+.footer-contact-info a {
+    font-family: var(--font-2);
+}
+
+.footer-contact-phone  {
+    font-size: 1.4em;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    
+}
+
+
+
+.footer-contact-phone:hover {
+    color: var(--gold-color);
+}
+
+
+
+.fut2 li a {
+    font-family: var(--font-2);
+    position: relative;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.fut2 li a:hover {
+    padding-left: 15px;
+    color: var(--gold-color);
+}
+
+.fut2 li a:before {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+    height: 6px;
+    content: "";
+    background-color: var(--gold-color);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    opacity: 0;
+    border-radius: 50%;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+  }
+
+
+  .fut2 li a:hover:before {
+    opacity: 1;
+  }
+
+  .footer-contact-mail {
+    font-size: 16px;
+  line-height: 3em;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.footer-contact-mail:hover {
+  color: var(--gold-color);
+}
+.footer-contact-mail:before {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--gold-color);
+  content: "";
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+.footer-contact-mail:hover:before {
+  background-color: var(--gold-color);
+}
+
+/* Style for social icon*/
+
+.fut-social ul {
+    margin: 0;
+
+    display: flex;
+    position: absolute;
+    
+    left: 29%; 
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+  }
+  
+  .fut-social ul li {
+    list-style: none;
+    margin: 0 15px;
+  }
+  
+  .fut-social ul li a {
+    position: relative; 
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 45px;
+    background: var(--dark-main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    border: 1px solid var(--lightgold-color);
+    color: var(--white-color);
+    transition: .5s;
+  }
+  
+  .fut-social ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--lightgold-color);
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+  }
+
+
+  .fut-social ul li a:hover::before {
+    transform: scale(1.1);
+    box-shadow:  0 0 15px var(--lightgold-color);
+  }
+
+  .fut-social ul li a:hover {
+    color: var(--lpurple);
+    box-shadow: 0 0 5px var(--lightgold-color);
+    text-shadow: 0 0 5px var(--lightgold-color);
+  }
+
+
+
+  /*----------------COPYRIGHT-----------*/
+
+
+  .cpy {
+    width: 100%;
+    padding-bottom: 30px;
+    
+  }
+
+  .hr {
+    width: 100%;
+    background-color: var(--white-color);
+    height: 1px;
+    margin-bottom: 20px;
+  }
+
+  .cpy p {
+    font-family: var(--font-2);
+    font-weight: 300;
+    font-size: 0.8em;
+    padding-left: 25px;
+  }
+
+  .cpy a {
+    color: var(--gold-color);
+    font-family: var(--font-2);
+    text-decoration: underline;
+  }
+
 
   

@@ -217,6 +217,78 @@
 }
 
 
+/*-----------------------PROJECTS--------------*/
+
+#project {
+    background-color: var(--lightgold-color);
+    margin-top: 90px;
+    overflow: hidden;
+    margin-bottom: 0px;
+
+}
+
+.p-mother {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 80px;
+}
+
+.demo {
+    margin-top: 250px;
+}
+
+.dem {
+    position: relative;
+    top: -200px;
+}
+
+.demi {
+    margin-bottom: 100px;
+}
+
+.project-title {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.project-title h2 {
+    padding-right: 20%;
+    font-weight: 800;
+}
+
+
+
+  /*--------------------FOOOOOOOOTER=========*/
+
+  .fut {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+    gap: 50px;
+   
+}
+
+.fut1 p {
+    padding-right: 10%;
+}
+
+.fut2 {
+    position: relative;
+    /* left: -200px; */
+}
+
+.fut-social {
+    position: relative;
+    left: 25px;
+}
+
+.cpy p {
+    padding-left: 70px;
+}
       
 
 
@@ -493,8 +565,77 @@
         
     }
 
+    /*-----------------------PROJECTS--------------*/
+
+    #project {
+        background-color: var(--lightgold-color);
+        margin-top: 90px;
+        overflow: hidden;
+        margin-bottom: 0px;
+
+    }
+
+    .p-mother {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 70px;
+        padding-right: 70px;
+        gap: 80px;
+    }
+
+    .demo {
+        margin-top: 250px;
+    }
+
+    .dem {
+        position: relative;
+        top: -200px;
+    }
+
+    .demi {
+        margin-bottom: 100px;
+    }
+
+    .project-title {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    .project-title h2 {
+        padding-right: 50%;
+        font-weight: 800;
+    }
 
 
+
+     /*--------------------FOOOOOOOOTER=========*/
+
+     .fut {
+        display: flex;
+        flex-direction: row;
+        padding-left: 70px;
+        padding-right: 70px;
+        justify-content: space-between;
+       
+    }
+
+    .fut1 p {
+        padding-right: 50%;
+    }
+
+    .fut2 {
+        position: relative;
+        left: -200px;
+    }
+
+    .fut-social {
+        position: relative;
+        left: 25px;
+    }
+
+    .cpy p {
+        padding-left: 70px;
+    }
 
 
 
