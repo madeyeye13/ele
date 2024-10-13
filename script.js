@@ -7,24 +7,38 @@ var wind = $(window);
 ///////////NAV BAR
 
 $(document).ready(function () {
-  const wind = $(window);
-
-  // Navbar dropdown toggle for mobile
-  $('.menu-icon').on('click', function () {
-      $('.nav-menu').toggleClass('open');
+    const wind = $(window);
+  
+    // Navbar dropdown toggle for mobile
+    $('.menu-icon').on('click', function () {
+        $('.nav-menu').toggleClass('open');
+    });
+  
+    // Navbar scrolling background
+    wind.on("scroll", function () {
+        var bodyScroll = wind.scrollTop();
+  
+        if (bodyScroll > 100) {
+            $(".navbar").css("background", "black");
+        } else {
+            $(".navbar").css("background", "transparent");
+        }
+    });
+  
+    // Highlight the current active page
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+  
+    $('.nav-link').each(function () {
+        const href = $(this).attr('href');
+  
+        if (href === page || (page === '' && href === 'index.html')) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
   });
-
-  // Navbar scrolling background
-  wind.on("scroll", function () {
-      var bodyScroll = wind.scrollTop();
-
-      if (bodyScroll > 100) {
-          $(".navbar").css("background", "black");
-      } else {
-          $(".navbar").css("background", "transparent");
-      }
-  });
-});
 
 
 
