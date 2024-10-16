@@ -7,6 +7,10 @@
     <meta name="description" content="CREATING EXQUISITE EVENTS">
 
 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -788,7 +792,6 @@ function setActiveCollection(titleId) {
 
 // Function to handle title click
 function handleTitleClick(event) {
-    console.log('Title clicked:', event.target);
     if (event.target.classList.contains('portfolio-title')) {
         const titleId = event.target.id;
         console.log(`Handling click for titleId: ${titleId}`);
@@ -811,64 +814,42 @@ function restoreActiveState() {
 // Add click event listener to the titles container
 document.querySelector('.port-titles').addEventListener('click', handleTitleClick);
 
-// Handle browser back/forward buttons and initial page load
-window.onpopstate = function(event) {
-    console.log('popstate event triggered', event.state);
-    restoreActiveState();
-};
-
 // Intercept clicks on collection images
 document.querySelectorAll('.port-mom a').forEach(link => {
     link.addEventListener('click', function(event) {
         const activeTitle = sessionStorage.getItem('activePortfolioTitle');
         console.log(`Image clicked. Active title: ${activeTitle}`);
         sessionStorage.setItem('returnToGallery', 'true');
-        history.pushState({ activeTitle: activeTitle }, '', this.href);
+        sessionStorage.setItem('lastImageClicked', this.href);
     });
 });
 
-// Function to check if we're returning from an image page
-function checkReturnFromImage() {
-    console.log('Checking if returning from image page');
-    if (sessionStorage.getItem('returnToGallery') === 'true') {
-        console.log('Returning from image page, restoring state');
+// Function to handle navigation
+function handleNavigation() {
+    console.log('Handling navigation');
+    const returnToGallery = sessionStorage.getItem('returnToGallery');
+    const lastImageClicked = sessionStorage.getItem('lastImageClicked');
+    const currentURL = window.location.href;
+
+    if (returnToGallery === 'true' && currentURL !== lastImageClicked) {
+        console.log('Returning to gallery from image page');
         sessionStorage.removeItem('returnToGallery');
-        restoreActiveState();
-    }
-}
-
-// Run on initial page load
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded event fired');
-    restoreActiveState();
-    checkReturnFromImage();
-});
-
-// Run when page is shown (including from bfcache)
-window.addEventListener('pageshow', function(event) {
-    console.log('pageshow event fired, persisted:', event.persisted);
-    if (event.persisted) {
-        restoreActiveState();
-        checkReturnFromImage();
-    }
-});
-
-// Ensure the hash is updated when the active collection changes
-function updateHash(titleId) {
-    console.log(`Updating hash to: ${titleId}`);
-    if (history.pushState) {
-        history.pushState(null, null, `#${titleId}`);
+        sessionStorage.removeItem('lastImageClicked');
+        location.reload();
     } else {
-        location.hash = `#${titleId}`;
+        restoreActiveState();
     }
 }
 
-// Call this function whenever setActiveCollection is called
-function setActiveCollectionAndUpdateHash(titleId) {
-    console.log(`setActiveCollectionAndUpdateHash called with titleId: ${titleId}`);
-    setActiveCollection(titleId);
-    updateHash(titleId);
+// Run on initial page load and when navigating
+function initializeGallery() {
+    console.log('Initializing gallery');
+    handleNavigation();
 }
+
+// Add event listeners
+window.addEventListener('load', initializeGallery);
+window.addEventListener('popstate', initializeGallery);
 
 console.log('Gallery script loaded');
 
