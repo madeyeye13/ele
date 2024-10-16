@@ -145,6 +145,17 @@
             </div>
 
 
+            <div class="port-mom" data-aos="fade-up">
+
+                <a href="yassine.html"><img src="yassine/1.jpg" alt="image"></a>
+                <div class="port-info">
+                    <h2>Yassine & Shehu</h2>
+                </div>
+
+            </div>
+
+
+
 
             <div class="port-mom" data-aos="fade-up">
 
@@ -162,6 +173,37 @@
                 <a href="sultana.html"><img src="image/29.jpg" alt="image"></a>
                 <div class="port-info">
                     <h2>Sultana & Ashraf</h2>
+                </div>
+
+            </div>
+
+
+            <div class="port-mom" data-aos="fade-up">
+
+                <a href="ma.html"><img src="ma/1.jpg" alt="image"></a>
+                <div class="port-info">
+                    <h2>Maryam & Abdulkadir</h2>
+                </div>
+
+            </div>
+
+
+            <div class="port-mom" data-aos="fade-up">
+
+                <a href="mustbe.html"><img src="mustbe/21.jpg" alt="image"></a>
+                <div class="port-info">
+                    <h2>The Abachas</h2>
+                </div>
+
+            </div>
+
+
+
+            <div class="port-mom" data-aos="fade-up">
+
+                <a href="loveod.html"><img src="loveod/1.jpg" alt="image"></a>
+                <div class="port-info">
+                    <h2>Omo & Dotun</h2>
                 </div>
 
             </div>
@@ -202,9 +244,9 @@
             
             <div class="port-mom" data-aos="fade-up">
 
-                <a href="mustbe.html"><img src="mustbe/21.jpg" alt="image"></a>
+                <a href="foreverao.html"><img src="foreverao/1.jpg" alt="image"></a>
                 <div class="port-info">
-                    <h2>The Abachas</h2>
+                    <h2>Amina & Olugboyega</h2>
                 </div>
 
             </div>
@@ -723,68 +765,112 @@
 
 // Function to set active title and show corresponding collection
 function setActiveCollection(titleId) {
+    console.log(`setActiveCollection called with titleId: ${titleId}`);
     const titles = document.querySelectorAll('.portfolio-title');
     const collections = document.querySelectorAll('.port-gmom');
-    
     titles.forEach(title => title.classList.remove('active'));
-    
     collections.forEach(collection => {
         collection.classList.remove('active-collection');
         collection.style.display = 'none';
     });
-    
     const activeTitle = document.getElementById(titleId);
     const activeCollection = document.getElementById(titleId.replace('-title', '-collection'));
-    
-    activeTitle.classList.add('active');
-    activeCollection.classList.add('active-collection');
-    activeCollection.style.display = 'grid';  // or 'flex' for mobile
-    
-    // Save active state to localStorage
-    localStorage.setItem('activePortfolioTitle', titleId);
+    if (activeTitle && activeCollection) {
+        console.log(`Setting active title and collection for: ${titleId}`);
+        activeTitle.classList.add('active');
+        activeCollection.classList.add('active-collection');
+        activeCollection.style.display = 'grid'; // or 'flex' for mobile
+        sessionStorage.setItem('activePortfolioTitle', titleId);
+    } else {
+        console.warn(`Could not find elements for titleId: ${titleId}`);
+    }
 }
 
 // Function to handle title click
 function handleTitleClick(event) {
+    console.log('Title clicked:', event.target);
     if (event.target.classList.contains('portfolio-title')) {
-        setActiveCollection(event.target.id);
+        const titleId = event.target.id;
+        console.log(`Handling click for titleId: ${titleId}`);
+        setActiveCollection(titleId);
+        history.pushState({ activeTitle: titleId }, '', `gallery.html#${titleId}`);
     }
 }
 
-// Function to restore active state on page load
+// Function to restore active state
 function restoreActiveState() {
-    const activeTitle = localStorage.getItem('activePortfolioTitle');
-    if (activeTitle) {
-        setActiveCollection(activeTitle);
-    } else {
-        // Set a default active collection if none is stored
-        setActiveCollection('wedding-title');
-    }
+    console.log('Restoring active state');
+    const hash = window.location.hash.slice(1);
+    const sessionStorageTitle = sessionStorage.getItem('activePortfolioTitle');
+    console.log(`Hash: ${hash}, SessionStorage: ${sessionStorageTitle}`);
+    const activeTitle = hash || sessionStorageTitle || 'wedding-title';
+    console.log(`Restoring active title: ${activeTitle}`);
+    setActiveCollection(activeTitle);
 }
 
 // Add click event listener to the titles container
 document.querySelector('.port-titles').addEventListener('click', handleTitleClick);
 
-// Restore active state on page load
-document.addEventListener('DOMContentLoaded', restoreActiveState);
-
-// Handle browser back button
-window.addEventListener('popstate', function(event) {
-    if (event.state && event.state.activeTitle) {
-        setActiveCollection(event.state.activeTitle);
-    }
-});
+// Handle browser back/forward buttons and initial page load
+window.onpopstate = function(event) {
+    console.log('popstate event triggered', event.state);
+    restoreActiveState();
+};
 
 // Intercept clicks on collection images
 document.querySelectorAll('.port-mom a').forEach(link => {
     link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const activeTitle = localStorage.getItem('activePortfolioTitle');
+        const activeTitle = sessionStorage.getItem('activePortfolioTitle');
+        console.log(`Image clicked. Active title: ${activeTitle}`);
+        sessionStorage.setItem('returnToGallery', 'true');
         history.pushState({ activeTitle: activeTitle }, '', this.href);
-        window.location = this.href;
     });
 });
 
+// Function to check if we're returning from an image page
+function checkReturnFromImage() {
+    console.log('Checking if returning from image page');
+    if (sessionStorage.getItem('returnToGallery') === 'true') {
+        console.log('Returning from image page, restoring state');
+        sessionStorage.removeItem('returnToGallery');
+        restoreActiveState();
+    }
+}
+
+// Run on initial page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded event fired');
+    restoreActiveState();
+    checkReturnFromImage();
+});
+
+// Run when page is shown (including from bfcache)
+window.addEventListener('pageshow', function(event) {
+    console.log('pageshow event fired, persisted:', event.persisted);
+    if (event.persisted) {
+        restoreActiveState();
+        checkReturnFromImage();
+    }
+});
+
+// Ensure the hash is updated when the active collection changes
+function updateHash(titleId) {
+    console.log(`Updating hash to: ${titleId}`);
+    if (history.pushState) {
+        history.pushState(null, null, `#${titleId}`);
+    } else {
+        location.hash = `#${titleId}`;
+    }
+}
+
+// Call this function whenever setActiveCollection is called
+function setActiveCollectionAndUpdateHash(titleId) {
+    console.log(`setActiveCollectionAndUpdateHash called with titleId: ${titleId}`);
+    setActiveCollection(titleId);
+    updateHash(titleId);
+}
+
+console.log('Gallery script loaded');
 
     </script>
 
