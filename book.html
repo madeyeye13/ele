@@ -125,12 +125,67 @@
 
 <section class="contact-section">
     <div class="contak">
-        <h2>We’d Love to Hear From You</h2>
-        <p>Whether you're planning a wedding, corporate event, or something entirely unique, we're here to help make your vision a reality. Get in touch with us today and let's start planning your unforgettable event!</p>
+        <h2>We Would Love To Hear From You</h2>
+        <p>It is our pleasure to serve you! To enable us assist you appropriately, Please provide us the following:</p>
 
     </div>
 
     <div class="contact-mother">
+
+
+        <form id="contact-form" action="https://formspree.io/f/xdkooedn" method="POST">
+            <label for="current-location">Your Current Location</label>
+            <input type="text" id="current-location" name="current-location" placeholder="Where are you located currently?">
+        
+            <label for="event-date">Event Date</label>
+            <input type="date" id="event-date" name="event-date" required placeholder="Select event date">
+        
+            <label for="event-type">Event Type</label>
+            <select id="event-type" name="event-type">
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Social">Social</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Other">Other</option>
+            </select>
+        
+            <label for="event-count">How Many Events</label>
+            <input type="number" id="event-count" name="event-count" placeholder="Number of events">
+        
+            <label for="guest-count">No of Guests</label>
+            <input type="number" id="guest-count" name="guest-count" placeholder="Estimated number of guests">
+        
+            <label for="venue">Venue</label>
+            <input type="text" id="venue" name="venue" required placeholder="Event venue location">
+        
+            <label for="groom-name">Full Name Groom</label>
+            <input type="text" id="groom-name" name="groom-name" placeholder="Enter groom's full name">
+        
+            <label for="bride-name">Full Name Bride</label>
+            <input type="text" id="bride-name" name="bride-name" placeholder="Enter bride's full name">
+        
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Contact phone number">
+        
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter email address">
+        
+            <label for="hashtag">Hashtag if Any</label>
+            <input type="text" id="hashtag" name="hashtag" placeholder="Unique hashtag for the event">
+        
+            <label for="three-words">3 Words to Describe Your Day</label>
+            <input type="text" id="three-words" name="three-words" placeholder="E.g., Elegant, Fun, Memorable">
+        
+            <label for="budget">Budget</label>
+            <input type="text" id="budget" name="budget" required placeholder="Event budget">
+        
+            <label for="overall-brief">Overall Brief on How You’d Explain Your Day</label>
+            <textarea id="overall-brief" name="overall-brief" rows="5" placeholder="Describe your vision for the event"></textarea>
+        
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="success-message">Thanks for reaching out! We'll get back to you soon.</div>
 
 
         <div id="contct">
@@ -144,7 +199,7 @@
                     <p>Email:</p>
     
                     <ul>
-                        <li>THEJAMESLULLYCOMPANYGROUP@GMAIL.COM</li>
+                      
                         <li>EXQUISITELUXURYEVENTS@GMAIL.COM</li>
                     </ul>
     
@@ -185,45 +240,10 @@
         </div>
 
 
-
-        <form id="contact-form" action="https://formspree.io/f/xdkooedn" method="POST">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your full name">
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required placeholder="Your best email">
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Optional phone number">
-
-            <label for="event-type">Event Type</label>
-            <select id="event-type" name="event-type">
-                <option value="Wedding">Wedding</option>
-                <option value="Corporate">Corporate</option>
-                <option value="Social">Social</option>
-                <option value="Birthday">Birthday</option>
-                <option value="Other">Other</option>
-            </select>
-
-            <label for="event-date">Event Date</label>
-            <input type="date" id="event-date" name="event-date" required placeholder="Enter your full name">
-
-            <label for="location">Event Location</label>
-            <input type="text" id="location" name="location" placeholder="Enter location">
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us more about your event"></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-
-
-    </div>
+      
     
-
-   
+    </div>
 </section>
-
 <!---------------------------MAP--------------------------->
 
 
@@ -454,6 +474,7 @@
         }
 
 
+
         #intr {
             background-image: url(image/2.jpg);
             object-fit: cover;
@@ -477,120 +498,9 @@
             font-weight: 600;
         }
 
-        .contact-section {
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 25px;
-        background-color: white;
-        border-radius: 8px;
+
         
-        
-    }
 
-    .contak h2 {
-        font-size: 24px;
-        color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
-    .contak p {
-        text-align: center;
-        color: #666;
-        font-size: 16px;
-        margin-bottom: 20px;
-        text-align: left;
-        
-    }
-
-    #contact {
-        margin-top: 30px;
-        list-style: none;
-        margin-bottom: 50px;
-        /* padding-left: 25px;
-        padding-right: 25px; */
-    }
-
-    #contact h3 {
-        font-family: var(--font-2);
-        font-weight: 300;
-        margin-bottom: 30px;
-        font-size: 2em;
-    }
-
-    .contat {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .cntct ul li {
-        list-style: none;
-    }
-
-    .cntct p {
-        color: var(--dark-main-color);
-        font-size: 1.2em;
-    }
-
-    
-
-    form {
-        display: flex;
-        flex-direction: column;
-    }
-
-    label {
-        font-size: 14px;
-        color: var(--dark-main-color);
-        margin-bottom: 5px;
-    }
-
-    input, select, textarea {
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    button {
-        background-color: var(--purple);
-        color: white;
-        padding: 10px 15px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: var(--dark-main-color);
-    }
-
-    /* Success message */
-    #success-message {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #28a745;
-        color: white;
-        padding: 10px 10px;
-        width: 50%;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: none;
-        z-index: 1000;
-    }
-
-    .hidden {
-        display: none;
-    }
 
 
 
@@ -620,7 +530,7 @@
             background-position: center;
         }
 
-        .contact-mother {
+        /* .contact-mother {
 
             display: flex;
             gap: 100px;
@@ -657,7 +567,10 @@
 
     .contak h2 {
         text-align: center;
-    }
+    } */
+
+
+    
 
     }
 
@@ -762,14 +675,10 @@
         document.getElementById("contact-form").addEventListener("submit", async function(event) {
             event.preventDefault();  // Prevent default form submission behavior
 
-            // Get the form element
             const form = event.target;
-
-            // Create FormData object to capture the form data
             const formData = new FormData(form);
 
             try {
-                // Send the form data using Fetch API to Formspree
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: formData,
@@ -779,16 +688,13 @@
                 });
 
                 if (response.ok) {
-                    // Show the success message
                     const successMessage = document.getElementById("success-message");
                     successMessage.style.display = "block";
 
-                    // Hide the success message after 5 seconds
                     setTimeout(() => {
                         successMessage.style.display = "none";
                     }, 5000);
 
-                    // Reset the form
                     form.reset();
                 } else {
                     console.error("Form submission failed.");
@@ -797,6 +703,7 @@
                 console.error("Error submitting the form:", error);
             }
         });
+
 
 
     </script>

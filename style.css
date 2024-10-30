@@ -626,7 +626,7 @@ header {
     background-color: #080808bd;
     background-blend-mode: overlay;
     opacity: 1;
-    margin-top: 80px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     
@@ -751,7 +751,7 @@ header {
 
 #project {
     background-color: var(--lightgold-color);
-    margin-top: 90px;
+    margin-top: 10px;
     overflow: hidden;
     margin-bottom: 100px;
 }
