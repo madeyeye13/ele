@@ -95,7 +95,7 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="about.html#service" class="nav-link">Services</a></li>
+                <!-- <li><a href="about.html#service" class="nav-link">Services</a></li> -->
                 <li><a href="gallery.html" class="nav-link">Portfolio</a></li>
                 <li><a href="book.html" class="nav-link">Contact</a></li>
             </ul>
@@ -466,71 +466,89 @@
 
     <!-------------------------------FOOTER--------------------------->
 
-    <footer id="footer">
-        <div class="fut-m">
-            <div class="fut">
-
-                <div class="fut1">
-                    <h4>EXQUISITE LUXURY EVENTS</h4>
-                    <p>The events we plan are always elegant and completely tailored to your requirements. It is important to us that your event reflects what you represent. Rest assured, it will be both sophisticated and exquisitely memorable.
-                        Exquisite Luxury will plan your unique event by recommending event professionals, creating a design plan, managing all the vendors as well as handling details. 
-                        </p>
-                </div>
-
-                <div class="fut2">
-                    <h4>EXPLORE</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="gallery.html">Portfolio</a></li>
-                        <li><a href="about.html#service">Services</a></li>
-                        <li><a href="book.html#contct">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="fut3">
-                    <h4>Get In Touch</h4>
-                    <div class="addr">
-                        <p>58B USUMA STREET, MAITAMA, ABUJA</p>
-                    </div>
-                    <div class="footer-contact-info">
-                        <p class="footer-contact-phone"><span class="ti-headphone-alt"></span> <a href="tel:0816 763 3866">0807 352 0997</a></p>
-                        <p class="footer-contact-mail"><a href="mailto:exquisiteluxuryevents@gmail.com">exquisiteluxuryevents@gmail.com</a></p>
-                    </div>
-
-                    <div class="fut-social">
-
-                        <ul>
-                            
-                            <li><a href="https://web.facebook.com/p/Exquisite-Luxury-Events-NG-100075947166965/?_rdc=1&_rdr">
-                                <i class="ti-facebook"></i>
-                            </a></li>
-                            
-                            <!-- Instagram Icon -->
-                            <li><a href="https://www.instagram.com/exquisiteluxuryevents/">
-                                <i class="ti-instagram"></i>
-                            </a></li>
-                            
-                            <!-- YouTube Icon -->
-                            <li><a href="https://www.youtube.com/your-channel-link">
-                                <i class="ti-youtube"></i>
-                            </a></li>
-                        </ul> 
-
-                    </div>
-                </div>
-            </div>
-
-            
-
-        </div>
-        <div class="cpy">
-            <div class="hr"></div>
-            <div class="footer-bottom-inner">
-                <p class="footer-bottom-copy-right">© Copyright 2024. Designed by <a href="https://betzalelco.xyz/" target="_blank">Betzalel Concept</a></p>
-            </div>
+    <footer id="footer2">
+        <div class="footer3">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Portfolio</a></li>
+                
+                <li><a href="book.html">Contact</a></li>
+            </ul>
         </div>
 
+        <div class="hr-ruler"></div>
+
+        <div class="footerbu">
+            <p class="footer-bottom-copy-right">© Copyright 2024 Exquisite Luxury Events. Designed by <a href="https://betzalelco.xyz/" target="_blank">Betzalel Concept</a></p>
+        </div>
     </footer>
+
+    <style>
+
+        .footer3 {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+
+        .footer3 ul {
+            display: flex;
+            gap: 30px;
+            text-decoration: none;
+            list-style: none;
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
+        .footerbu {
+            display: flex;
+            justify-content: center;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-top: 25px;
+            font-family: var(--font-2);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .hr-ruler {
+            width: 100%;
+            height: 1px;
+            background-color: var(--fade-out);
+            margin-top: 20px;
+        }
+
+        .footerbu p {
+            font-family: var(--font-2);
+            font-weight: 400;
+            color: var(--fade-out);
+            font-size: 0.8em;
+        }
+
+        .footerbu a {
+            font-family: var(--font-2);
+            text-decoration: underline;
+            color: var(--gold-color);
+        }
+
+        @media (min-width:1024px) {
+            .footer3 ul {
+            display: flex;
+            gap: 80px;
+            text-decoration: none;
+            list-style: none;
+            font-size: 1em;
+        }
+        }
+
+
+    </style>
+
 
 
 
