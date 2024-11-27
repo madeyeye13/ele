@@ -831,7 +831,7 @@ header {
 }
 
 .fut h4 {
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 30px;
     font-size: 1.5em;
     color: var(--gold-color);
