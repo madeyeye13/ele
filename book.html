@@ -133,7 +133,7 @@
     <div class="contact-mother">
 
 
-        <form id="contact-form" action="https://formspree.io/f/xdkooedn" method="POST">
+        <form id="contact-form">
             <label for="current-location">Your Current Location</label>
             <input type="text" id="current-location" name="current-location" placeholder="Where are you located currently?">
         
@@ -179,13 +179,14 @@
             <label for="budget">Budget</label>
             <input type="text" id="budget" name="budget" required placeholder="Event budget">
         
-            <label for="overall-brief">Overall Brief on How You’d Explain Your Day</label>
+            <label for="overall-brief">Overall Brief on How You'd Explain Your Day</label>
             <textarea id="overall-brief" name="overall-brief" rows="5" placeholder="Describe your vision for the event"></textarea>
         
             <button type="submit">Submit</button>
         </form>
         
         <div id="success-message">Thanks for reaching out! We'll get back to you soon.</div>
+        <div id="error-message">Oops! There was a problem sending your message. Please try again.</div>
 
 
         <div id="contct">
@@ -395,6 +396,31 @@
     .hidden {
         display: none;
     }
+
+
+    #success-message, #error-message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+
+    #error-message {
+            position: fixed;
+            background-color: #f2dede;
+            color: #a94442;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            padding: 10px 10px;
+            width: 50%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
 
 
 
@@ -687,42 +713,68 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize EmailJS
+(function() {
+    emailjs.init("uSOlCE7MJVxL7I1o5"); // Replace with your User ID
+})();
 
-        document.getElementById("contact-form").addEventListener("submit", async function(event) {
-            event.preventDefault();  // Prevent default form submission behavior
+// Form submission handler
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get message elements
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
 
-            const form = event.target;
-            const formData = new FormData(form);
+    // Hide any previous messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+    // Prepare form data
+    const formData = {
+        'current-location': document.getElementById('current-location').value,
+        'event-date': document.getElementById('event-date').value,
+        'event-type': document.getElementById('event-type').value,
+        'event-count': document.getElementById('event-count').value,
+        'guest-count': document.getElementById('guest-count').value,
+        'venue': document.getElementById('venue').value,
+        'groom-name': document.getElementById('groom-name').value,
+        'bride-name': document.getElementById('bride-name').value,
+        'phone': document.getElementById('phone').value,
+        'email': document.getElementById('email').value,
+        'hashtag': document.getElementById('hashtag').value,
+        'three-words': document.getElementById('three-words').value,
+        'budget': document.getElementById('budget').value,
+        'overall-brief': document.getElementById('overall-brief').value
+    };
 
-                if (response.ok) {
-                    const successMessage = document.getElementById("success-message");
-                    successMessage.style.display = "block";
+    // Send email using EmailJS
+    emailjs.send('service_hphm8id', 'template_5ob0nmm', formData)
+        .then(function() {
+            // Show success message
+            successMessage.style.display = 'block';
 
-                    setTimeout(() => {
-                        successMessage.style.display = "none";
-                    }, 5000);
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+            
+            // Reset the form
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            // Show error message
+            errorMessage.style.display = 'block';
 
-                    form.reset();
-                } else {
-                    console.error("Form submission failed.");
-                }
-            } catch (error) {
-                console.error("Error submitting the form:", error);
-            }
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+
+            console.log('Error:', error);
         });
-
-
-
+});
     </script>
 
 
